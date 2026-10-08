@@ -13,10 +13,6 @@
 
 <style>
 
-/* =========================
-   НЕГИЗГИ
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +27,7 @@ body {
 }
 
 body {
-    background: #faeef2;
+    background: #4b3568;
 }
 
 
@@ -47,21 +43,12 @@ body {
     height: 100vh;
     height: 100dvh;
 
-    min-height: 600px;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
     text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fffafb,
-            #f8e8ee
-        );
 
     isolation: isolate;
 }
@@ -74,8 +61,7 @@ body {
 .video-bg {
     position: absolute;
 
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
     height: 100%;
@@ -87,7 +73,7 @@ body {
 
 
 /* =========================
-   ЖУМШАК ФИЛЬТР
+   ФИОЛЕТОВЫЙ ЖУМШАК КАТМАР
 ========================= */
 
 #cover::before {
@@ -97,23 +83,18 @@ body {
     inset: 0;
 
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,0.85),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 80% 75%,
-            rgba(244,190,205,0.45),
-            transparent 35%
+        linear-gradient(
+            135deg,
+            rgba(48, 25, 75, 0.28),
+            rgba(116, 76, 145, 0.15),
+            rgba(36, 20, 58, 0.30)
         );
 
     z-index: 1;
 }
 
 
-/* Видеонун үстүндөгү ачык катмар */
+/* Жеңил жарык */
 
 #cover::after {
     content: "";
@@ -121,14 +102,19 @@ body {
     position: absolute;
     inset: 0;
 
-    background: rgba(255,245,248,0.35);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.16),
+            transparent 55%
+        );
 
     z-index: 2;
 }
 
 
 /* =========================
-   НЕГИЗГИ ТЕКСТ
+   ТЕКСТ
 ========================= */
 
 .content {
@@ -157,11 +143,12 @@ body {
 
     letter-spacing: 5px;
 
-    color: #9b6b78;
+    color: #ffffff;
 
     margin-bottom: 18px;
 
-    text-transform: uppercase;
+    text-shadow:
+        0 2px 12px rgba(30,15,45,0.45);
 }
 
 
@@ -180,11 +167,11 @@ body {
 
     line-height: 0.95;
 
-    color: #9a6171;
+    color: #ffffff;
 
     text-shadow:
-        0 3px 15px
-        rgba(150,80,105,0.20);
+        0 3px 20px rgba(30,15,50,0.50),
+        0 0 25px rgba(255,255,255,0.18);
 }
 
 
@@ -205,11 +192,11 @@ body {
 
     margin-top: 12px;
 
-    color: #b47787;
+    color: #f4eaff;
 
     text-shadow:
-        0 2px 12px
-        rgba(160,90,110,0.20);
+        0 3px 18px rgba(30,15,50,0.55),
+        0 0 25px rgba(230,210,255,0.30);
 }
 
 
@@ -224,14 +211,17 @@ body {
 
     letter-spacing: 5px;
 
-    color: #8d6972;
+    color: #ffffff;
 
     margin-top: 22px;
+
+    text-shadow:
+        0 2px 10px rgba(30,15,45,0.55);
 }
 
 
 /* =========================
-   КИЧИНЕ ТЕКСТ
+   ТЕКСТ
 ========================= */
 
 .sub-title {
@@ -247,7 +237,10 @@ body {
 
     letter-spacing: 2px;
 
-    color: #8f7078;
+    color: #f8f1ff;
+
+    text-shadow:
+        0 2px 10px rgba(30,15,45,0.50);
 }
 
 
@@ -262,14 +255,14 @@ body {
 
     border:
         1px solid
-        rgba(150,95,110,0.40);
+        rgba(255,255,255,0.65);
 
     border-radius: 50px;
 
     background:
-        rgba(255,255,255,0.70);
+        rgba(255,255,255,0.16);
 
-    color: #8e5d6b;
+    color: #ffffff;
 
     font-family: 'Montserrat', sans-serif;
 
@@ -279,27 +272,28 @@ body {
 
     cursor: pointer;
 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
     transition:
         all 0.4s ease;
 
     box-shadow:
         0 5px 25px
-        rgba(150,90,110,0.12);
+        rgba(20,10,35,0.25);
 }
 
 
 .enter-btn:hover {
-    background: #ffffff;
+    background:
+        rgba(255,255,255,0.30);
 
     transform:
         scale(1.05);
 
     box-shadow:
-        0 10px 30px
-        rgba(150,90,110,0.20);
+        0 10px 35px
+        rgba(20,10,35,0.35);
 }
 
 
@@ -322,14 +316,14 @@ body {
         linear-gradient(
             135deg,
             #ffffff,
-            #f1b9ca
+            #d9c1ef
         );
 
     box-shadow:
-        0 2px 8px
-        rgba(200,130,150,0.25);
+        0 2px 10px
+        rgba(255,255,255,0.35);
 
-    opacity: 0.8;
+    opacity: 0.85;
 
     z-index: 10;
 
@@ -343,7 +337,7 @@ body {
 
 
 /* =========================
-   ЖАЛБЫРАК АНИМАЦИЯСЫ
+   ГҮЛ АНИМАЦИЯСЫ
 ========================= */
 
 @keyframes petalFall {
@@ -358,7 +352,7 @@ body {
     }
 
     10% {
-        opacity: 0.8;
+        opacity: 0.85;
     }
 
     50% {
@@ -395,7 +389,8 @@ body {
 
     box-shadow:
         0 0 8px #ffffff,
-        0 0 16px #efb8c9;
+        0 0 18px #dcbfff,
+        0 0 28px #b995d8;
 
     z-index: 11;
 
@@ -427,13 +422,13 @@ body {
         opacity: 1;
 
         transform:
-            scale(1.4);
+            scale(1.5);
     }
 }
 
 
 /* =========================
-   ТЕКСТ АЧЫЛУУ АНИМАЦИЯСЫ
+   АЧЫЛУУ АНИМАЦИЯСЫ
 ========================= */
 
 @keyframes contentShow {
@@ -466,9 +461,7 @@ body {
 
     .small-title {
         font-size: 9px;
-
         letter-spacing: 3px;
-
         margin-bottom: 14px;
     }
 
@@ -478,37 +471,27 @@ body {
 
     .name {
         font-size: 58px;
-
         margin-top: 10px;
     }
 
     .date {
         font-size: 12px;
-
         letter-spacing: 4px;
-
         margin-top: 18px;
     }
 
     .sub-title {
         font-size: 9px;
-
         max-width: 290px;
-
         letter-spacing: 1.5px;
-
         margin-top: 17px;
     }
 
     .enter-btn {
         margin-top: 28px;
-
-        padding:
-            13px 30px;
-
+        padding: 13px 30px;
         font-size: 10px;
     }
-
 }
 
 
@@ -537,7 +520,6 @@ body {
     .enter-btn {
         margin-top: 20px;
     }
-
 }
 
 </style>
@@ -546,10 +528,6 @@ body {
 
 <body>
 
-
-<!-- =========================
-     БАШКЫ ЭКРАН
-========================= -->
 
 <div id="cover">
 
@@ -575,27 +553,27 @@ body {
 
     <div class="content">
 
-
-       
-
+        <div class="small-title">
+            АК ЖОЛ ТИЛЕП
+        </div>
 
         <div class="main-title">
             Кыз узатуу
         </div>
 
-
         <div class="name">
             Мадина
         </div>
-
 
         <div class="date">
             24.10.2026
         </div>
 
-
-     
-
+        <div class="sub-title">
+            Кызыбыздын ак жолун тилеп,
+            жаңы турмушуна узатуу
+            салтанатына чакырабыз
+        </div>
 
         <button
             class="enter-btn"
@@ -605,16 +583,12 @@ body {
 
         </button>
 
-
     </div>
 
 </div>
 
 
-
-<!-- =========================
-     МУЗЫКА
-========================= -->
+<!-- МУЗЫКА -->
 
 <audio
     id="music"
@@ -628,12 +602,10 @@ body {
 </audio>
 
 
-
 <script>
 
-
 /* =========================
-   ГҮЛ ЖАЛБЫРАКТАРЫН ЖАСОО
+   ГҮЛ ЖАЛБЫРАКТАРЫ
 ========================= */
 
 const cover =
@@ -647,31 +619,23 @@ for (let i = 0; i < 28; i++) {
 
     petal.className = "petal";
 
-
     petal.style.left =
         Math.random() * 100 + "%";
-
 
     petal.style.animationDuration =
         (7 + Math.random() * 8) + "s";
 
-
     petal.style.animationDelay =
         Math.random() * 10 + "s";
-
 
     const size =
         0.5 + Math.random() * 0.8;
 
-
     petal.style.transform =
         "scale(" + size + ")";
 
-
     cover.appendChild(petal);
-
 }
-
 
 
 /* =========================
@@ -685,64 +649,48 @@ for (let i = 0; i < 18; i++) {
 
     light.className = "light";
 
-
     light.style.left =
         Math.random() * 100 + "%";
-
 
     light.style.top =
         Math.random() * 100 + "%";
 
-
     light.style.animationDelay =
         Math.random() * 3 + "s";
 
-
     cover.appendChild(light);
-
 }
 
 
-
 /* =========================
-   КНОПКАНЫ БАСУУ
+   КНОПКА
 ========================= */
 
 document
     .getElementById("enterBtn")
     .addEventListener("click", function () {
 
-
-        /* МУЗЫКАНЫ БАШТОО */
-
         const music =
             document.getElementById("music");
 
+        music.play().catch(function(error) {
 
-        music
-            .play()
-            .catch(function(error) {
+            console.log(
+                "Музыка башталган жок:",
+                error
+            );
 
-                console.log(
-                    "Музыка башталган жок:",
-                    error
-                );
-
-            });
+        });
 
 
-        /* БИР АЗ КҮТҮП TILDAГА ӨТҮҮ */
-
-        setTimeout(function() {
+        setTimeout(function () {
 
             window.location.href =
                 "https://first-engaged-taro.tilda.ws/page288496503.html";
 
         }, 700);
 
-
     });
-
 
 </script>
 
