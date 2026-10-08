@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Мадинанын кыз узатуусу</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   НЕГИЗГИ
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #faeef2;
+}
+
+
+/* =========================
+   БАШКЫ ЭКРАН
+========================= */
+
+#cover {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffafb,
+            #f8e8ee
+        );
+
+    isolation: isolate;
+}
+
+
+/* =========================
+   ВИДЕО ФОН
+========================= */
+
+.video-bg {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+
+/* =========================
+   ЖУМШАК ФИЛЬТР
+========================= */
+
+#cover::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.85),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 75%,
+            rgba(244,190,205,0.45),
+            transparent 35%
+        );
+
+    z-index: 1;
+}
+
+
+/* Видеонун үстүндөгү ачык катмар */
+
+#cover::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255,245,248,0.35);
+
+    z-index: 2;
+}
+
+
+/* =========================
+   НЕГИЗГИ ТЕКСТ
+========================= */
+
+.content {
+    position: relative;
+
+    z-index: 20;
+
+    padding: 25px;
+
+    animation:
+        contentShow
+        2s
+        ease
+        forwards;
+}
+
+
+/* =========================
+   ЖОГОРКУ ТЕКСТ
+========================= */
+
+.small-title {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #9b6b78;
+
+    margin-bottom: 18px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   КЫЗ УЗАТУУ
+========================= */
+
+.main-title {
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(
+        65px,
+        15vw,
+        120px
+    );
+
+    line-height: 0.95;
+
+    color: #9a6171;
+
+    text-shadow:
+        0 3px 15px
+        rgba(150,80,105,0.20);
+}
+
+
+/* =========================
+   МАДИНА
+========================= */
+
+.name {
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(
+        55px,
+        13vw,
+        95px
+    );
+
+    line-height: 1;
+
+    margin-top: 12px;
+
+    color: #b47787;
+
+    text-shadow:
+        0 2px 12px
+        rgba(160,90,110,0.20);
+}
+
+
+/* =========================
+   ДАТА
+========================= */
+
+.date {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 15px;
+
+    letter-spacing: 5px;
+
+    color: #8d6972;
+
+    margin-top: 22px;
+}
+
+
+/* =========================
+   КИЧИНЕ ТЕКСТ
+========================= */
+
+.sub-title {
+    font-family: 'Montserrat', sans-serif;
+
+    max-width: 330px;
+
+    margin: 20px auto 0;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    letter-spacing: 2px;
+
+    color: #8f7078;
+}
+
+
+/* =========================
+   КНОПКА
+========================= */
+
+.enter-btn {
+    margin-top: 34px;
+
+    padding: 14px 36px;
+
+    border:
+        1px solid
+        rgba(150,95,110,0.40);
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,0.70);
+
+    color: #8e5d6b;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        all 0.4s ease;
+
+    box-shadow:
+        0 5px 25px
+        rgba(150,90,110,0.12);
+}
+
+
+.enter-btn:hover {
+    background: #ffffff;
+
+    transform:
+        scale(1.05);
+
+    box-shadow:
+        0 10px 30px
+        rgba(150,90,110,0.20);
+}
+
+
+/* =========================
+   ГҮЛ ЖАЛБЫРАКТАРЫ
+========================= */
+
+.petal {
+    position: absolute;
+
+    top: -30px;
+
+    width: 9px;
+    height: 13px;
+
+    border-radius:
+        80% 20% 80% 20%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f1b9ca
+        );
+
+    box-shadow:
+        0 2px 8px
+        rgba(200,130,150,0.25);
+
+    opacity: 0.8;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    animation:
+        petalFall
+        linear
+        infinite;
+}
+
+
+/* =========================
+   ЖАЛБЫРАК АНИМАЦИЯСЫ
+========================= */
+
+@keyframes petalFall {
+
+    0% {
+        transform:
+            translateY(-40px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(55px)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(-60px)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   ЖЫЛТЫРАГАН ЖАРЫКТАР
+========================= */
+
+.light {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 8px #ffffff,
+        0 0 16px #efb8c9;
+
+    z-index: 11;
+
+    animation:
+        sparkle
+        3s
+        ease-in-out
+        infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   ЖАРЫК АНИМАЦИЯСЫ
+========================= */
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0.15;
+
+        transform:
+            scale(0.6);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.4);
+    }
+}
+
+
+/* =========================
+   ТЕКСТ АЧЫЛУУ АНИМАЦИЯСЫ
+========================= */
+
+@keyframes contentShow {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================
+   ТЕЛЕФОН
+========================= */
+
+@media (max-width: 600px) {
+
+    .content {
+        padding: 20px;
+    }
+
+    .small-title {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 14px;
+    }
+
+    .main-title {
+        font-size: 67px;
+    }
+
+    .name {
+        font-size: 58px;
+
+        margin-top: 10px;
+    }
+
+    .date {
+        font-size: 12px;
+
+        letter-spacing: 4px;
+
+        margin-top: 18px;
+    }
+
+    .sub-title {
+        font-size: 9px;
+
+        max-width: 290px;
+
+        letter-spacing: 1.5px;
+
+        margin-top: 17px;
+    }
+
+    .enter-btn {
+        margin-top: 28px;
+
+        padding:
+            13px 30px;
+
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================
+   БИЙИКТИГИ АЗ ТЕЛЕФОН
+========================= */
+
+@media (max-height: 700px) {
+
+    .main-title {
+        font-size: 58px;
+    }
+
+    .name {
+        font-size: 50px;
+    }
+
+    .date {
+        margin-top: 12px;
+    }
+
+    .sub-title {
+        margin-top: 12px;
+    }
+
+    .enter-btn {
+        margin-top: 20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     БАШКЫ ЭКРАН
+========================= -->
+
+<div id="cover">
+
+
+    <!-- ВИДЕО ФОН -->
+
+    <video
+        class="video-bg"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto">
+
+        <source
+            src="video.mp4"
+            type="video/mp4">
+
+    </video>
+
+
+    <!-- ТЕКСТ -->
+
+    <div class="content">
+
+
+       
+
+
+        <div class="main-title">
+            Кыз узатуу
+        </div>
+
+
+        <div class="name">
+            Мадина
+        </div>
+
+
+        <div class="date">
+            23.10.2026
+        </div>
+
+
+     
+
+
+        <button
+            class="enter-btn"
+            id="enterBtn">
+
+            ЧАКЫРУУНУ АЧУУ
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     МУЗЫКА
+========================= -->
+
+<audio
+    id="music"
+    loop
+    preload="auto">
+
+    <source
+        src="music.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+
+<script>
+
+
+/* =========================
+   ГҮЛ ЖАЛБЫРАКТАРЫН ЖАСОО
+========================= */
+
+const cover =
+    document.getElementById("cover");
+
+
+for (let i = 0; i < 28; i++) {
+
+    const petal =
+        document.createElement("div");
+
+    petal.className = "petal";
+
+
+    petal.style.left =
+        Math.random() * 100 + "%";
+
+
+    petal.style.animationDuration =
+        (7 + Math.random() * 8) + "s";
+
+
+    petal.style.animationDelay =
+        Math.random() * 10 + "s";
+
+
+    const size =
+        0.5 + Math.random() * 0.8;
+
+
+    petal.style.transform =
+        "scale(" + size + ")";
+
+
+    cover.appendChild(petal);
+
+}
+
+
+
+/* =========================
+   ЖЫЛТЫРАГАН ЖАРЫКТАР
+========================= */
+
+for (let i = 0; i < 18; i++) {
+
+    const light =
+        document.createElement("div");
+
+    light.className = "light";
+
+
+    light.style.left =
+        Math.random() * 100 + "%";
+
+
+    light.style.top =
+        Math.random() * 100 + "%";
+
+
+    light.style.animationDelay =
+        Math.random() * 3 + "s";
+
+
+    cover.appendChild(light);
+
+}
+
+
+
+/* =========================
+   КНОПКАНЫ БАСУУ
+========================= */
+
+document
+    .getElementById("enterBtn")
+    .addEventListener("click", function () {
+
+
+        /* МУЗЫКАНЫ БАШТОО */
+
+        const music =
+            document.getElementById("music");
+
+
+        music
+            .play()
+            .catch(function(error) {
+
+                console.log(
+                    "Музыка башталган жок:",
+                    error
+                );
+
+            });
+
+
+        /* БИР АЗ КҮТҮП TILDAГА ӨТҮҮ */
+
+        setTimeout(function() {
+
+            window.location.href =
+                "https://first-engaged-taro.tilda.ws/page288496503.html";
+
+        }, 700);
+
+
+    });
+
+
+</script>
+
+
+</body>
+</html>
